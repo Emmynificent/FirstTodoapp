@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>Todo list</title>
+    </head>
+    <body>
+        <h1>My ToDo list</h1>
+        <form method="post">
+            {% csrf_token %}
+            TODO: <input type="text" placeholder="Your activity" name="activity">
+            <input type="submit">
+
+        <ul>
+            {% for hold in holds reversed%}
+            <li>{{hold}} <span><a href="delete/{{hold.id}}">Delete</a></span></li>
+            {% endfor%}
+        </ul>
+        </form>
+    </body>
+</html>
